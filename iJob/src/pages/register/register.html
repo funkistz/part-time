@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Create an Account
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+
+    <ion-card>
+      <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+    </ion-card>
+
+    <button class="button-image" ion-button block icon-left (click)="capture()" >
+      <ion-icon name="image"></ion-icon> Choose Image
+    </button>
+
+    <ion-item>
+      <ion-label stacked>Full Name</ion-label>
+      <ion-input formControlName="name" type="text" placeholder="Full Name"
+        [class.invalid]="!signupForm.controls.name.valid && signupForm.controls.name.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.name.valid  && signupForm.controls.name.dirty">
+      <p>Name Required.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Contact</ion-label>
+      <ion-input formControlName="contact" type="text" placeholder="Contact"
+        [class.invalid]="!signupForm.controls.contact.valid && signupForm.controls.contact.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.contact.valid  && signupForm.controls.contact.dirty">
+      <p>Contact Required.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Past Education</ion-label>
+      <ion-input formControlName="institute" type="text" placeholder="Past Institute"
+        [class.invalid]="!signupForm.controls.institute.valid && signupForm.controls.institute.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.institute.valid  && signupForm.controls.institute.dirty">
+      <p>Past Institute Required.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Current Job</ion-label>
+      <ion-input formControlName="job" type="text" placeholder="Enter Student if not currently working"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Language</ion-label>
+      <ion-input formControlName="language" type="text" placeholder="Enter Student if not currently working"></ion-input>
+    </ion-item>
+
+    <ion-item margin-top>
+      <ion-label>Available Date From</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" formControlName="start_date"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Until</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" formControlName="end_date"></ion-datetime>
+    </ion-item>
+
+    <ion-item margin-top>
+      <ion-label>Available Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="start_time"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>To</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="end_time"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Job Experience</ion-label>
+      <ion-input formControlName="experience" type="text" placeholder="Use space to enter multiple job experience"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>About</ion-label>
+      <ion-textarea formControlName="about" placeholder="Tell more about yourself" rows="4"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Your email address"
+        [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+      <p>Please enter a valid email.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="password" type="password"  placeholder="Your password"
+        [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Confirm Password</ion-label>
+      <ion-input formControlName="password2" type="password"  placeholder="Confirm password"
+        [class.invalid]="!signupForm.controls.password2.valid && signupForm.controls.password2.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password2.valid  && signupForm.controls.password2.dirty">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+
+    <button ion-button block type="submit" margin-top>
+      Sign Up
+    </button>
+
+  </form>
+
+</ion-content>

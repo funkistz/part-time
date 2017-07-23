@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>
+      Register Company
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+
+  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+
+    <ion-card>
+      <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+    </ion-card>
+
+    <button class="button-image" ion-button block icon-left (click)="capture()" >
+      <ion-icon name="image"></ion-icon> Choose Image
+    </button>
+
+    <ion-item>
+      <ion-label stacked>Organization Name</ion-label>
+      <ion-input formControlName="name" type="text" placeholder="Organization Name"
+        [class.invalid]="!signupForm.controls.name.valid && signupForm.controls.name.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.name.valid  && signupForm.controls.name.dirty">
+      <p>Name Required.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Contact</ion-label>
+      <ion-input formControlName="contact" type="text" placeholder="Contact"
+        [class.invalid]="!signupForm.controls.contact.valid && signupForm.controls.contact.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.contact.valid  && signupForm.controls.contact.dirty">
+      <p>Contact Required.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>About</ion-label>
+      <ion-textarea rows="4" formControlName="about" placeholder="About"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Location</ion-label>
+      <ion-input formControlName="location" type="text" placeholder="Location"
+        [class.invalid]="!signupForm.controls.location.valid && signupForm.controls.location.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.location.valid  && signupForm.controls.location.dirty">
+      <p>Location Required.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Your email address"
+        [class.invalid]="!signupForm.controls.email.valid && signupForm.controls.email.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid  && signupForm.controls.email.dirty">
+      <p>Please enter a valid email.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="password" type="password"  placeholder="Your password"
+        [class.invalid]="!signupForm.controls.password.valid && signupForm.controls.password.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid  && signupForm.controls.password.dirty">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Confirm Password</ion-label>
+      <ion-input formControlName="password2" type="password"  placeholder="Confirm password"
+        [class.invalid]="!signupForm.controls.password2.valid && signupForm.controls.password2.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password2.valid  && signupForm.controls.password2.dirty">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+
+    <button ion-button block type="submit" margin-top>
+      Sign Up
+    </button>
+
+  </form>
+
+</ion-content>

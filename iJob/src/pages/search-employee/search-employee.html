@@ -1,0 +1,33 @@
+<!--
+  Generated template for the SearchEmployeePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Search Employee</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-searchbar (ionInput)="search($event)" placeholder='Type location or institute' ></ion-searchbar>
+
+  <ion-list>
+
+    <ion-item *ngFor="let employee of employeeList" (click)="userInfo(employee)">
+      <ion-thumbnail item-start>
+        <img [src]="(employee | async)?.image">
+      </ion-thumbnail>
+      <h2 text-capitalize>{{ (employee | async)?.name }}</h2>
+      <p text-capitalize>{{ (employee | async)?.institute }}</p>
+      <ion-icon name="arrow-forward" item-end ></ion-icon>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,76 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Add New Job</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <input type="hidden" [(ngModel)]="job.id" />
+    <ion-item>
+      <ion-label floating>Location</ion-label>
+      <ion-input type="text" [(ngModel)]="job.location"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Position</ion-label>
+      <ion-input type="text" [(ngModel)]="job.position"></ion-input>
+    </ion-item>
+
+    <ion-item margin-top>
+      <ion-label>Start Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="job.start_date"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>End Date</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" [(ngModel)]="job.end_date"></ion-datetime>
+    </ion-item>
+
+
+    <ion-item margin-top>
+      <ion-label>Start Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="job.start_time"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>End Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="job.end_time"></ion-datetime>
+    </ion-item>
+
+    <ion-list radio-group no-margin [(ngModel)]="job.gender">
+
+      <ion-list-header no-margin>
+        Gender
+      </ion-list-header>
+
+      <ion-item>
+        <ion-label>Male</ion-label>
+        <ion-radio checked="true" value="male"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Female</ion-label>
+        <ion-radio value="female"></ion-radio>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-item>
+      <ion-label floating>Salary (per-hour) RM</ion-label>
+      <ion-input type="number" [(ngModel)]="job.pay"></ion-input>
+    </ion-item>
+
+    <button ion-button block (click)='submitProduct();' margin-top>
+      <span *ngIf="job.id">Update</span>
+      <span *ngIf="!job.id">Submit</span>
+    </button>
+
+  </ion-list>
+
+</ion-content>

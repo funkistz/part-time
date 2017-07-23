@@ -1,0 +1,56 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Job Info</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card text-center>
+    <img [src]="job.image" padding />
+    <ion-card-content>
+      <ion-card-title>{{ job.name }}</ion-card-title>
+      <p>{{ job.about }}</p>
+      <p><ion-icon name="pin" item-start></ion-icon> {{ job.location }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+
+    <ion-list>
+      <button ion-item>
+        <ion-icon name="briefcase" item-start></ion-icon>
+        {{ job.position }}
+      </button>
+
+      <button ion-item>
+        <ion-icon name="calendar" item-start></ion-icon>
+        {{ job.start_date }} until {{ job.end_date }}
+      </button>
+
+      <button ion-item>
+        <ion-icon name="clock" item-start></ion-icon>
+        {{ job.start_time }} to {{ job.end_time }}
+      </button>
+
+      <button ion-item>
+        <ion-icon name="contact" item-start></ion-icon>
+        {{ job.gender }}
+      </button>
+
+      <button ion-item>
+        <ion-icon name="card" item-start></ion-icon>
+        RM {{ job.pay }}/hour
+      </button>
+
+    </ion-list>
+  </ion-card>
+
+  <div margin *ngIf="isApply">
+    <button ion-button block (click)='applyJob(job);'>Apply Job</button>
+  </div>
+
+</ion-content>

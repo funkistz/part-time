@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Notification</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding-top>
+
+  <ion-list>
+
+    <ion-item *ngFor="let job of jobList" (click)="jobInfo(job)">
+      <ion-thumbnail item-start>
+        <img [src]="job.image">
+      </ion-thumbnail>
+      <h2 text-capitalize>{{ job.name }}</h2>
+      <p text-capitalize>Aply for position {{ job.apply_position }}</p>
+      <p text-capitalize>At {{ job.apply_location }}</p>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

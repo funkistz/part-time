@@ -1,0 +1,103 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Update Profile</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <img [src]="user.image" *ngIf="!captureDataUrl" />
+    <img [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+  </ion-card>
+
+  <button class="button-image" ion-button block icon-left (click)="capture()" >
+    <ion-icon name="image"></ion-icon> Choose Image
+  </button>
+
+  <form [formGroup]="signupForm" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Organization Name</ion-label>
+      <ion-input formControlName="name" type="text" placeholder="Organization Name" [(ngModel)]="user.name"
+        [class.invalid]="!signupForm.controls.name.valid && signupForm.controls.name.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.name.valid  && signupForm.controls.name.dirty">
+      <p>Name Required.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Contact</ion-label>
+      <ion-input formControlName="contact" type="text" placeholder="Contact" [(ngModel)]="user.contact"
+        [class.invalid]="!signupForm.controls.contact.valid && signupForm.controls.contact.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.contact.valid  && signupForm.controls.contact.dirty">
+      <p>Contact Required.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Past Education</ion-label>
+      <ion-input formControlName="institute" type="text" placeholder="Past Institute" [(ngModel)]="user.institute"
+        [class.invalid]="!signupForm.controls.institute.valid && signupForm.controls.institute.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.institute.valid  && signupForm.controls.institute.dirty">
+      <p>Past Institute Required.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Current Job</ion-label>
+      <ion-input formControlName="job" type="text" placeholder="Enter Student if not currently working" [(ngModel)]="user.job"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Language</ion-label>
+      <ion-input formControlName="language" type="text" placeholder="Enter Student if not currently working" [(ngModel)]="user.language"></ion-input>
+    </ion-item>
+
+    <ion-item margin-top>
+      <ion-label>Available Date From</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" formControlName="start_date" [(ngModel)]="user.start_date"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Until</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM/DD/YYYY" formControlName="end_date" [(ngModel)]="user.end_date"></ion-datetime>
+    </ion-item>
+
+    <ion-item margin-top>
+      <ion-label>Available Time</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="start_time" [(ngModel)]="user.start_time"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>To</ion-label>
+      <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" formControlName="end_time" [(ngModel)]="user.end_time"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Job Experience</ion-label>
+      <ion-input formControlName="experience" type="text" placeholder="Use space to enter multiple job experience" [(ngModel)]="user.experience"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>About</ion-label>
+      <ion-textarea rows="4" formControlName="about" placeholder="About" [(ngModel)]="user.about" ></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Location</ion-label>
+      <ion-input formControlName="location" type="text" placeholder="Location" [(ngModel)]="user.location"
+        [class.invalid]="!signupForm.controls.location.valid && signupForm.controls.location.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.location.valid  && signupForm.controls.location.dirty">
+      <p>Location Required.</p>
+    </ion-item>
+
+    <button ion-button block margin-top (click)="editUser()">
+      Update
+    </button>
+
+  </form>
+
+</ion-content>
